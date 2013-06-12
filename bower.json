@@ -1,0 +1,14 @@
+{
+  "name": "bootstrap-gridinator",
+  "version": "0.0.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+  	"bootstrap": "x",
+  	"knockout": "x",
+  	"less.js": "x"
+  }
+}

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Twitter Bootstrap Gridinator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Twitters Bootstrap Grid Generator Online">
+    <meta name="author" content="marchenko.alexandr@gmail.com">
+
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="components/bootstrap/docs/assets/ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="components/bootstrap/docs/assets/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="components/bootstrap/docs/assets/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="components/bootstrap/docs/assets/ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" href="components/bootstrap/docs/assets/ico/favicon.png">
+
+	<link rel="stylesheet" href="components/bootstrap/docs/assets/css/bootstrap.css" />
+	<link rel="stylesheet/less" type="text/css" href="gridinator.less" />
+	<script src="components/less.js/dist/less-1.3.3.min.js"></script>
+</head>
+<body>
+	<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="brand" href="#">Gridinator</a>
+					<form class="navbar-form form-inline pull-left">
+						<div class="input-prepend">
+							<span class="add-on">#</span>
+							<input title="Number of grid columns" type="number" data-bind="value: gridColumns, valueUpdate: 'afterkeyup'" placeholder="12" pattern="\d+" required>
+						</div>
+						<div class="input-append">
+							<input title="Column width (in pixels)" type="number" data-bind="value: gridColumnWidth, valueUpdate: 'afterkeyup'" placeholder="60" pattern="\d+" required>
+							<span class="add-on">px</span>
+						</div>
+						<div class="input-append">
+							<input title="Gutter width (in pixels)" type="number" data-bind="value: gridGutterWidth, valueUpdate: 'afterkeyup'" placeholder="20" pattern="\d+" required>
+							<span class="add-on">px</span>
+						</div>
+						<div class="input-append">
+							<input title="Calculated container width (in pixels)" type="text" data-bind="value: width" disabled>
+							<span class="add-on">px</span>
+						</div>
+						<div class="btn-group">
+							<input type="submit" class="btn btn-primary" data-bind="enable: submitEnabled, click: submit" value="Submit">
+							<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+							<ul class="dropdown-menu">
+								<li><a href="#" data-bind="click: preset_940_12_60_20">940 (default)</a></li>
+								<li class="divider"></li>
+								<li><a href="#" data-bind="click: preset_700_12_40_20">700</a></li>
+								<li><a href="#" data-bind="click: preset_950_12_70_10">950</a></li>
+								<li><a href="#" data-bind="click: preset_980_18_45_10">980</a></li>
+								<li><a href="#" data-bind="click: preset_1000_12_65_20">1000</a></li>
+								<li><a href="#" data-bind="click: preset_1170_12_70_30">1170</a></li>
+								<li class="divider"></li>
+								<li><a href="#" data-bind="text: pixelsTogglerLabel, click: togglePixels"></a></li>
+							</ul>
+						</div>
+					</form>
+					<ul class="nav pull-right">
+						<li>
+							<a href="https://github.com/mac2000/bootstrap-gridinator" class="pull-right">GitHub</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	<div class="container" data-bind="foreach: rows">
+		<div class="row" data-bind="foreach: $data">
+			<div class="well" data-bind="text: text, css: css, attr: { title: title }"></div>
+		</div>
+	</div>
+	<script src="components/jquery/jquery.min.js"></script>
+	<script src="components/bootstrap/js/bootstrap-dropdown.js"></script>
+	<script src="components/knockout/build/output/knockout-latest.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>
